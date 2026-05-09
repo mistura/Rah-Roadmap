@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSc Chemistry → Data Science Roadmap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .competitive-edge {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .competitive-edge h2 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .edge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .edge-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #34d399;
+        }
+
+        .edge-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #6ee7b7;
+        }
+
+        .section {
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid #334155;
+        }
+
+        .section h2 {
+            color: #60a5fa;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #a78bfa;
+            margin: 25px 0 15px 0;
+            font-size: 1.4em;
+        }
+
+        .course-card {
+            background: #0f172a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 5px solid;
+            transition: transform 0.2s;
+        }
+
+        .course-card:hover {
+            transform: translateX(5px);
+        }
+
+        .course-card.free {
+            border-color: #10b981;
+        }
+
+        .course-card.paid {
+            border-color: #f59e0b;
+        }
+
+        .course-card.premium {
+            border-color: #8b5cf6;
+        }
+
+        .course-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+
+        .course-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #60a5fa;
+            flex: 1;
+        }
+
+        .course-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .badge-free {
+            background: #10b981;
+            color: white;
+        }
+
+        .badge-paid {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .badge-premium {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .course-details {
+            margin-top: 10px;
+            padding-left: 15px;
+        }
+
+        .course-details li {
+            margin-bottom: 8px;
+            color: #cbd5e1;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #3b82f6;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .project-number {
+            background: #3b82f6;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 15px;
+        }
+
+        .project-title {
+            font-size: 1.4em;
+            color: #60a5fa;
+            font-weight: bold;
+        }
+
+        .project-difficulty {
+            margin-left: auto;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .diff-beginner {
+            background: #10b981;
+        }
+
+        .diff-intermediate {
+            background: #f59e0b;
+        }
+
+        .diff-advanced {
+            background: #ef4444;
+        }
+
+        .project-section {
+            margin-top: 15px;
+        }
+
+        .project-section h4 {
+            color: #a78bfa;
+            margin-bottom: 8px;
+        }
+
+        .project-section ul {
+            padding-left: 20px;
+        }
+
+        .project-section li {
+            margin-bottom: 8px;
+            color: #cbd5e1;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tool-item {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #334155;
+            transition: all 0.3s;
+        }
+
+        .tool-item:hover {
+            border-color: #60a5fa;
+            transform: translateY(-3px);
+        }
+
+        .tool-icon {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin-top: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #0f172a;
+            border-radius: 10px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -47px;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3b82f6;
+            border: 4px solid #1e293b;
+        }
+
+        .timeline-month {
+            color: #60a5fa;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .resource-category {
+            background: #0f172a;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 4px solid #3b82f6;
+        }
+
+        .resource-category h4 {
+            color: #60a5fa;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .resource-category a {
+            display: block;
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 8px 0;
+            border-bottom: 1px solid #334155;
+            transition: color 0.2s;
+        }
+
+        .resource-category a:hover {
+            color: #60a5fa;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+        }
+         .sec{
+            display: flex ;
+            margin: auto;
+            width: fit-content;
+            
+        }
+        .but{
+            margin: 0px 10px;
+            background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+            padding: 5px 15px;
+            border: none;
+            outline: none;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .but:hover{
+            background: linear-gradient(135deg, #be185d 0%, #ec4899 100%);
+            transform: scale(1.05);
+            transition-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>🧪 → 📊 MSc Analytical Chemistry to Data Science</h1>
+            <div class="sec">
+                <p>Your Complete Roadmap to Landing a $80K+ Data Analyst Role</p>
+                 <a href="index.html" class="but">Road Map</a>      
+            </div>
+            
+        </div>
+
+        <div class="competitive-edge">
+            <h2>🎯 Your Unique Competitive Edge</h2>
+            <div class="edge-grid">
+                <div class="edge-item">
+                    <strong>Scientific Rigor</strong>
+                    <span>You understand experimental design, hypothesis testing, and statistical significance better than most bootcamp grads</span>
+                </div>
+                <div class="edge-item">
+                    <strong>Domain Expertise</strong>
+                    <span>Pharma, biotech, and chemical companies NEED people who understand both chemistry AND data</span>
+                </div>
+                <div class="edge-item">
+                    <strong>Technical Background</strong>
+                    <span>You already work with complex instruments and data interpretation - just different tools</span>
+                </div>
+                <div class="edge-item">
+                    <strong>Problem-Solving</strong>
+                    <span>Troubleshooting failed experiments = Debugging code. Same mindset, different domain</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Complete Learning Roadmap (Months 4-6)</h2>
+            
+            <h3>Month 4: Python & Data Fundamentals</h3>
+            
+            <div class="course-card free">
+                <div class="course-header">
+                    <div class="course-title">Python for Data Science (Google)</div>
+                    <span class="course-badge badge-free">FREE</span>
+                </div>
+                <div class="course-details">
+                    <strong>Platform:</strong> Coursera (Google Data Analytics Certificate - Python modules)<br>
+                    <strong>Time:</strong> 4 weeks, 10 hours/week<br>
+                    <strong>You'll Learn:</strong>
+                    <ul>
+                        <li>Python syntax and data types</li>
+                        <li>Pandas for data manipulation (CRITICAL skill)</li>
+                        <li>NumPy for numerical analysis (you already know the math!)</li>
+                        <li>Basic data cleaning and preparation</li>
+                    </ul>
+                    <strong>Why This One:</strong> Free with 7-day trial, industry-recognized certificate, chemistry-friendly examples
+                </div>
+            </div>
+
+            <div class="course-card free">
+                <div class="course-header">
+                    <div class="course-title">Statistics Refresher for Data Science</div>
+                    <span class="course-badge badge-free">FREE</span>
+                </div>
+                <div class="course-details">
+                    <strong>Platform:</strong> Khan Academy + StatQuest YouTube<br>
+                    <strong>Time:</strong> Self-paced, 2 hours/week<br>
+                    <strong>Topics:</strong> Probability, distributions, hypothesis testing, regression (you know this, just refresh!)<br>
+                    <strong>Chemistry Connection:</strong> Everything from your analytical methods course applies here
+                </div>
+            </div>
+
+            <h3>Month 5: Data Visualization & SQL</h3>
+
+            <div class="course-card free">
+                <div class="course-header">
+                    <div class="course-title">Data Visualization with Python</div>
+                    <span class="course-badge badge-free">FREE</span>
+                </div>
+                <div class="course-details">
+                    <strong>Platform:</strong> IBM Data Science Professional Certificate (Module 8)<br>
+                    <strong>Time:</strong> 3 weeks<br>
+                    <strong>You'll Learn:</strong>
+                    <ul>
+                        <li>Matplotlib & Seaborn (Python plotting)</li>
+                        <li>Creating publication-quality graphs</li>
+                        <li>Interactive dashboards</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="course-card paid">
+                <div class="course-header">
+                    <div class="course-title">Tableau for Scientists</div>
+                    <span class="course-badge badge-paid">$39</span>
+                </div>
+                <div class="course-details">
+                    <strong>Platform:</strong> Udemy (wait for sale, gets to $12-15)<br>
+                    <strong>Time:</strong> 2 weeks<br>
+                    <strong>Why:</strong> Tableau is #1 requested skill in pharma/biotech job postings<br>
+                    <strong>Alternative:</strong> Power BI Desktop (100% free, similar demand)
+                </div>
+            </div>
+
+            <div class="course-card free">
+                <div class="course-header">
+                    <div class="course-title">SQL for Data Science</div>
+                    <span class="course-badge badge-free">FREE</span>
+                </div>
+                <div class="course-details">
+                    <strong>Platform:</strong> Mode Analytics SQL Tutorial + SQLBolt<br>
+                    <strong>Time:</strong> 2 weeks, 1 hour/day<br>
+                    <strong>You'll Learn:</strong>
+                    <ul>
+                        <li>SELECT, WHERE, JOIN (90% of what you'll use)</li>
+                        <li>Aggregations and GROUP BY</li>
+                        <li>Subqueries and window functions</li>
+                    </ul>
+                    <strong>Practice:</strong> LeetCode SQL Easy problems (free)
+                </div>
+            </div>
+
+            <h3>Month 6: ChemInformatics & Machine Learning</h3>
+
+            <div class="course-card free">
+                <div class="course-header">
+                    <div class="course-title">Introduction to ChemInformatics</div>
+                    <span class="course-badge badge-free">FREE</span>
+                </div>
+                <div class="course-details">
+                    <strong>Platform:</strong> RDKit tutorials (official documentation) + YouTube<br>
+                    <strong>Time:</strong> 2 weeks<br>
+                    <strong>You'll Learn:</strong>
+                    <ul>
+                        <li>Molecular descriptors and fingerprints</li>
+                        <li>SMILES notation and structure manipulation</li>
+                        <li>Similarity searching and clustering</li>
+                    </ul>
+                    <strong>THIS IS YOUR SECRET WEAPON!</strong> Most data scientists can't do this
+                </div>
+            </div>
+
+            <div class="course-card free">
+                <div class="course-header">
+                    <div class="course-title">Machine Learning Basics</div>
+                    <span class="course-badge badge-free">FREE</span>
+                </div>
+                <div class="course-details">
+                    <strong>Platform:</strong> Google Machine Learning Crash Course<br>
+                    <strong>Time:</strong> 2 weeks<br>
+                    <strong>You'll Learn:</strong>
+                    <ul>
+                        <li>Supervised learning (regression, classification)</li>
+                        <li>Scikit-learn library basics</li>
+                        <li>Model evaluation and validation</li>
+                    </ul>
+                    <strong>For Chemistry:</strong> QSAR modeling, property prediction, compound classification
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Essential Tools & Technologies</h2>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <div class="tool-icon">🐍</div>
+                    <strong>Python</strong>
+                    <small>Core language</small>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">🐼</div>
+                    <strong>Pandas</strong>
+                    <small>Data manipulation</small>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">📊</div>
+                    <strong>Matplotlib</strong>
+                    <small>Visualization</small>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">🗃️</div>
+                    <strong>SQL</strong>
+                    <small>Databases</small>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">📈</div>
+                    <strong>Tableau</strong>
+                    <small>Dashboards</small>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">🧪</div>
+                    <strong>RDKit</strong>
+                    <small>ChemInformatics</small>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">🤖</div>
+                    <strong>Scikit-learn</strong>
+                    <small>Machine Learning</small>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">📓</div>
+                    <strong>Jupyter</strong>
+                    <small>Notebooks</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💼 Portfolio Projects That Will Get You Hired</h2>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-number">1</div>
+                    <div class="project-title">Analytical Method Comparison Dashboard</div>
+                    <span class="project-difficulty diff-beginner">BEGINNER</span>
+                </div>
+                
+                <div class="project-section">
+                    <h4>🎯 What You'll Build:</h4>
+                    <ul>
+                        <li>Compare HPLC vs GC-MS results for compound analysis</li>
+                        <li>Statistical analysis of method accuracy and precision</li>
+                        <li>Interactive Tableau dashboard showing method performance</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h4>📊 Data Sources:</h4>
+                    <ul>
+                        <li>Your own thesis/lab data (anonymize if needed)</li>
+                        <li>Public datasets: NIST Chemistry WebBook, PubChem</li>
+                        <li>Kaggle: "Chemical Compound Classification" dataset</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h4>🔧 Skills Demonstrated:</h4>
+                    <ul>
+                        <li>Data cleaning and preprocessing (Pandas)</li>
+                        <li>Statistical analysis (t-tests, ANOVA)</li>
+                        <li>Data visualization (Matplotlib + Tableau)</li>
+                        <li>Domain expertise (analytical chemistry)</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h4>💡 GitHub README Should Include:</h4>
+                    <ul>
+                        <li>"Compared precision of 3 analytical methods across 500 samples"</li>
+                        <li>"Identified 23% cost savings by recommending method switch"</li>
+                        <li>Before/after visualizations</li>
+                        <li>Clean, documented Python code</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-number">2</div>
+                    <div class="project-title">Drug Discovery Molecular Property Predictor</div>
+                    <span class="project-difficulty diff-intermediate">INTERMEDIATE</span>
+                </div>
+                
+                <div class="project-section">
+                    <h4>🎯 What You'll Build:</h4>
+                    <ul>
+                        <li>Machine learning model predicting drug solubility from molecular structure</li>
+                        <li>Web interface where users input SMILES, get predictions</li>
+                        <li>Feature importance analysis showing which molecular properties matter most</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h4>📊 Data Sources:</h4>
+                    <ul>
+                        <li>Solubility Dataset: ESOL (public, 1,128 compounds)</li>
+                        <li>PubChem for additional molecular descriptors</li>
+                        <li>ChEMBL database (bioactivity data)</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h4>🔧 Skills Demonstrated:</h4>
+                    <ul>
+                        <li>ChemInformatics (RDKit for molecular descriptors)</li>
+                        <li>Machine learning (Random Forest, Gradient Boosting)</li>
+                        <li>Model evaluation (R², MAE, cross-validation)</li>
+                        <li>Deployment (Streamlit for simple web app)</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h4>💡 Why This Stands Out:</h4>
+                    <ul>
+                        <li>Shows you understand drug development pipeline</li>
+                        <li>Demonstrates ML + Chemistry integration</li>
+                        <li>Live demo impresses in interviews</li>
+                        <li>Directly applicable to pharma/biotech roles</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-number">3</div>
+                    <div class="project-title">Spectroscopy Data Analysis Pipeline</div>
+                    <span class="project-difficulty diff-advanced">ADVANCED</span>
+                </div>
+                
+                <div class="project-section">
+                    <h4>🎯 What You'll Build:</h4>
+                    <ul>
+                        <li>Automated pipeline for processing IR/NMR/MS spectra</li>
+                        <li>Peak detection and compound identification</li>
+                        <li>Clustering analysis to group similar compounds</li>
+                        <li>Quality control anomaly detection</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h4>📊 Data Sources:</h4>
+                    <ul>
+                        <li>SDBS (Spectral Database for Organic Compounds)</li>
+                        <li>NIST Mass Spec Database (free search tool)</li>
+                        <li>Your own lab spectra (if available)</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h4>🔧 Skills Demonstrated:</h4>
+                    <ul>
+                        <li>Signal processing (NumPy, SciPy)</li>
+                        <li>Unsupervised learning (K-means, PCA)</li>
+                        <li>Automated data pipelines</li>
+                        <li>Advanced domain knowledge</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h4>💡 Interview Gold:</h4>
+                    <ul>
+                        <li>"Built automated QC system reducing manual review time by 80%"</li>
+                        <li>"Identified 15 misclassified samples using unsupervised learning"</li>
+                        <li>Perfect for lab informatics roles at $75K-90K</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📅 Month-by-Month Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-month">MONTH 4 - Week 1-2</div>
+                    <strong>Python Fundamentals</strong>
+                    <ul>
+                        <li>Complete Python syntax basics</li>
+                        <li>Install Anaconda, set up Jupyter Notebooks</li>
+                        <li>Practice: 30 min/day on Codecademy or DataCamp</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-month">MONTH 4 - Week 3-4</div>
+                    <strong>Pandas & NumPy</strong>
+                    <ul>
+                        <li>Data manipulation exercises</li>
+                        <li>Start Project 1: Gather your analytical data</li>
+                        <li>Clean and format data using Pandas</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-month">MONTH 5 - Week 1-2</div>
+                    <strong>Visualization & SQL</strong>
+                    <ul>
+                        <li>Complete Matplotlib/Seaborn tutorials</li>
+                        <li>Finish Project 1 with visualizations</li>
+                        <li>Start SQL course (Mode Analytics)</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-month">MONTH 5 - Week 3-4</div>
+                    <strong>Tableau & Project 2</strong>
+                    <ul>
+                        <li>Complete Tableau course</li>
+                        <li>Build Project 2: Drug property dashboard</li>
+                        <li>Practice SQL daily (LeetCode)</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-month">MONTH 6 - Week 1-2</div>
+                    <strong>ChemInformatics</strong>
+                    <ul>
+                        <li>Learn RDKit basics</li>
+                        <li>Generate molecular descriptors</li>
+                        <li>Continue Project 2 ML component</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-month">MONTH 6 - Week 3-4</div>
+                    <strong>Machine Learning & Project 3</strong>
+                    <ul>
+                        <li>Google ML Crash Course</li>
+                        <li>Build Project 3 or polish Projects 1-2</li>
+                        <li>Write excellent GitHub READMEs</li>
+                        <li>Practice explaining projects out loud</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎓 Free Resources Cheat Sheet</h2>
+            <div class="resources-grid">
+                <div class="resource-category">
+                    <h4>📚 Learning Platforms</h4>
+                    <a href="https://www.coursera.org" target="_blank">Coursera (7-day free trials)</a>
+                    <a href="https://www.khanacademy.org" target="_blank">Khan Academy (100% free)</a>
+                    <a href="https://www.youtube.com/@statquest" target="_blank">StatQuest YouTube</a>
+                    <a href="https://mode.com/sql-tutorial/" target="_blank">Mode SQL Tutorial</a>
+                    <a href="https://www.datacamp.com" target="_blank">DataCamp (free intro courses)</a>
+                </div>
+
+                <div class="resource-category">
+                    <h4>🧪 Chemistry + Data</h4>
+                    <a href="https://www.rdkit.org/docs/" target="_blank">RDKit Documentation</a>
+                    <a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank">PubChem Database</a>
+                    <a href="https://www.ebi.ac.uk/chembl/" target="_blank">ChEMBL Database</a>
+                    <a href="https://github.com/deepchem/deepchem" target="_blank">DeepChem (Advanced)</a>
+                </div>
+
+                <div class="resource-category">
+                    <h4>💻 Practice & Projects</h4>
+                    <a href="https://www.kaggle.com" target="_blank">Kaggle Datasets</a>
+                    <a href="https://leetcode.com" target="_blank">LeetCode SQL</a>
+                    <a href="https://github.com" target="_blank">GitHub (host your portfolio)</a>
+                    <a href="https://streamlit.io" target="_blank">Streamlit (build web apps)</a>
+                </div>
+
+                <div class="resource-category">
+                    <h4>🎯 Job Search</h4>
+                    <a href="https://www.linkedin.com" target="_blank">LinkedIn (optimize profile)</a>
+                    <a href="https://builtin.com" target="_blank">Built In (startup jobs)</a>
+                    <a href="https://www.indeed.com" target="_blank">Indeed (filter by chemistry)</a>
+                    <a href="https://www.glassdoor.com" target="_blank">Glassdoor (salary research)</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Target Job Titles & Companies</h2>
+            
+            <h3>Entry-Level Titles to Apply For:</h3>
+            <div class="course-details">
+                <ul>
+                    <li><strong>Junior Data Analyst</strong> - $55K-70K</li>
+                    <li><strong>Laboratory Informatics Analyst</strong> - $60K-75K (PERFECT fit!)</li>
+                    <li><strong>Chemical Data Scientist</strong> - $65K-80K</li>
+                    <li><strong>QA/QC Data Analyst</strong> - $55K-70K</li>
+                    <li><strong>ChemInformatics Analyst</strong> - $70K-85K (if you nail the projects)</li>
+                    <li><strong>Research Data Analyst</strong> - $60K-75K</li>
+                </ul>
+            </div>
+
+            <h3>Top Companies to Target:</h3>
+            <div class="edge-grid" style="margin-top: 20px;">
+                <div class="edge-item">
+                    <strong>Big Pharma</strong>
+                    Pfizer, Merck, AbbVie, Johnson & Johnson, Bristol Myers Squibb, Eli Lilly
+                </div>
+                <div class="edge-item">
+                    <strong>Chemical Companies</strong>
+                    Dow Chemical, BASF, DuPont, 3M, Eastman Chemical, PPG Industries
+                </div>
+                <div class="edge-item">
+                    <strong>Biotech Startups</strong>
+                    BenchSci, Atomwise, Recursion Pharma, Insitro, Schrodinger, Ginkgo Bioworks
+                </div>
+                <div class="edge-item">
+                    <strong>CROs & Testing Labs</strong>
+                    LabCorp, Quest Diagnostics, Eurofins, Charles River Labs, WuXi AppTec
+                </div>
+            </div>
+        </div>
+
+        <div class="competitive-edge" style="margin-top: 30px;">
+            <h2>🚀 Your Resume Bullet Points (After Projects)</h2>
+            <div class="edge-item" style="margin: 15px 0;">
+                ✅ "Built automated analytical method comparison tool using Python and Tableau, reducing manual review time by 60%"
+            </div>
+            <div class="edge-item" style="margin: 15px 0;">
+                ✅ "Developed machine learning model predicting drug solubility with 89% accuracy using RDKit and scikit-learn"
+            </div>
+            <div class="edge-item" style="margin: 15px 0;">
+                ✅ "Analyzed 500+ chemical compounds using Python (Pandas, NumPy) to identify optimal analytical methods"
+            </div>
+            <div class="edge-item" style="margin: 15px 0;">
+                ✅ "Created interactive dashboards in Tableau visualizing spectroscopy data patterns for quality control"
+            </div>
+        </div>
+    </div>
+</body>
+</html>
